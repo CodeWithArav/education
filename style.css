@@ -6,6 +6,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     scroll-padding: 100px;
+    transition: 0.4s;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -14,15 +15,21 @@
 :root {
     --dark-theme-text: #fff;
     --dark-theme-background: #0c0f1d;
-    --dark-theme-primary: #8fb3ff;
+    --dark-theme-primary: #467ff9;
+    --dark-theme-primary-text: #467ff9;
     --dark-theme-secondary: #001952;
-    --dark-theme-accent: #ff005d;
+    --dark-theme-accent: #00ddff;
+    --dark-theme-form-fields: #0b1327;
+    --dark-theme-circle-btn-links: #001952;
 
     --light-theme-text: #000;
     --light-theme-background: #fff;
     --light-theme-primary: #ff005d;
+    --light-theme-primary-text: #ff005d;
     --light-theme-secondary: #762c7d;
-    --light-theme-accent: #00ddff;
+    --light-theme-accent: #ff005d;
+    --light-theme-form-fields: #eaeaea;
+    --light-theme-circle-btn-links: #0b1327;
 
     --perspective: 1000px;
     --fs-heading-h1: clamp(2rem, 3vw + 0.1rem, 2.5rem);
@@ -55,12 +62,24 @@
     background-color: var(--light-theme-primary);
 }
 
+.light-theme-primary-text {
+    color: var(--light-theme-primary-text);
+}
+
 .light-theme-secondary {
     color: var(--light-theme-secondary);
 }
 
 .light-theme-accent {
     color: var(--light-theme-accent);
+}
+
+.light-theme-form-fields {
+    background: var(--light-theme-form-fields);
+}
+
+.light-theme-circle-btn-links {
+    background: var(--light-theme-circle-btn-links);
 }
 
 /* ---------- Dark Theme ---------- */
@@ -77,12 +96,24 @@
     background-color: var(--dark-theme-primary);
 }
 
+.dark-theme-primary-text {
+    color: var(--dark-theme-primary-text);
+}
+
 .dark-theme-secondary {
     color: var(--dark-theme-secondary);
 }
 
 .dark-theme-accent {
     color: var(--dark-theme-accent);
+}
+
+.dark-theme-form-fields {
+    background: var(--dark-theme-form-fields);
+}
+
+.dark-theme-circle-btn-links {
+    background: var(--dark-theme-circle-btn-links);
 }
 
 /* ---------- Scroll Bar ---------- */
@@ -148,8 +179,7 @@
 .theme-toggle-btn {
     width: 40px;
     height: 40px;
-    background: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -167,12 +197,17 @@
 
 /* ---------- Default Stylings ---------- */
 
+/* ---------- Tilt Effect ---------- */
+
+.tilt-effect {
+    transition: 0s;
+}
+
 /* ---------- Button ---------- */
 
 .btn {
     width: 140px;
     height: 47px;
-    background: var(--light-theme-primary);
     color: #fff;
     display: flex;
     align-items: center;
@@ -194,6 +229,10 @@
     background: #e90042;
 }
 
+.btn1 {
+    background-color: var(--light-theme-accent);
+}
+
 /* ---------- Heading ---------- */
 
 .heading {
@@ -207,6 +246,7 @@
     min-height: 100vh;
     padding-top: 65px;
     background: url(images/bg.png);
+    background-color: #fff;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -224,10 +264,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
-    background-color: var(--light-theme-background);
     z-index: 1000;
 }
 
@@ -336,10 +375,8 @@
     top: 0;
     left: 0;
     text-decoration: none;
-    color: var(--light-theme-text);
     font-weight: 600;
     margin: 10px 10px 10px 20px;
-    background: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
     padding: 5px 10px;
     border-radius: 5px;
@@ -398,8 +435,7 @@
     display: flex;
     width: 45px;
     height: 45px;
-    background: #000000;
-    text-shadow: 0px 0px 10px var(--light-theme-accent);
+    text-shadow: 0px 0px 1px var(--dark-theme-accent);
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -407,7 +443,8 @@
     margin-right: 10px;
     cursor: pointer;
     text-decoration: none;
-    color: var(--light-theme-accent);
+    color: var(--dark-theme-accent);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* ---------- Home Page Background ---------- */
@@ -426,7 +463,6 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: var(--light-theme-background);
     border-radius: 5px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     padding: 65px 30px 30px 30px;
@@ -468,10 +504,12 @@
 }
 
 .project-box {
-    font-weight: 600;
-    color: var(--light-theme-secondary);
-    text-shadow: 0px 0px 2px var(--light-theme-secondary);
+    font-weight: 800;
     font-size: 18px;
+    background-color: #0b1327;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
 }
 
 .projects {
@@ -509,7 +547,6 @@
     max-width: var(--wd-form);
     min-height: var(--hg-form);
     padding: 30px;
-    background: #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     margin: 20px;
@@ -529,7 +566,6 @@
     border-radius: 4px;
     outline: none;
     padding: 10px;
-    background: #eaeaea;
     border: none;
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
     transform: translateZ(20px);
@@ -576,6 +612,7 @@
     max-width: 100%;
     min-height: 40vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(images/bg.png);
+    background-color: #fff;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -596,11 +633,10 @@
 
 .footer-links a {
     text-decoration: none;
-    color: var(--light-theme-accent);
-    text-shadow: 0px 0px 7px var(--light-theme-accent);
+    color: var(--dark-theme-accent);
+    text-shadow: 0px 0px 1px var(--dark-theme-accent);
     width: 50px;
     height: 50px;
-    background: #000;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -688,7 +724,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 730px) {
     .header {
         background-image: url(images/bg2.png);
         background-size: cover;
